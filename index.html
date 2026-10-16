@@ -180,7 +180,7 @@ th.us{border-radius:18px 18px 0 0;color:#2F52D0}
   </div>
   <div style="position:relative;width:620px">
    <img class="shot" src="img/shield-chat.png" alt="Chat with locked lines that open at a later time" style="width:620px;display:block">
-   <div style="position:absolute;left:4px;top:452px;width:560px;height:46px;border:4px solid #FF8A4C;border-radius:10px"></div>
+   <div style="position:absolute;left:6px;top:488px;width:608px;height:50px;border:4px solid #E06A2C;border-radius:10px"></div>
    <p style="font-size:28px;font-weight:700;color:#C4551F;margin-top:22px">Opens at 21:37, when that scene airs</p>
   </div>
  </div>
@@ -211,6 +211,19 @@ th.us{border-radius:18px 18px 0 0;color:#2F52D0}
   <div class="card hi"><h3>Locked until it airs</h3><p>Chat about later scenes opens when they air.</p></div>
  </div>
  <div class="foot"><span></span><span>© 2026 BuildnWrite. All rights reserved.</span></div>
+</section></div>
+
+<!-- 11b architecture -->
+<div class="frame"><section class="slide">
+ <div style="display:flex;gap:64px;align-items:center;height:100%">
+  <div style="flex:1">
+   <span class="eb">04 How it works</span>
+   <h2>Architecture</h2>
+   <p class="lead" style="font-size:32px">Video plays only in the official YouTube embed. Supabase shares one host time. Cloud Run asks Gemini for answers and spoiler checks from a scene log made ahead.</p>
+  </div>
+  <img class="shot" src="img/architecture.png" alt="Architecture: viewer browser, Supabase Realtime, Cloud Run FastAPI, three Gemini models" style="height:800px;background:#FFFFFF">
+ </div>
+ <div class="foot"><span>Source: app code and Cloud Run deployment, 2026-10-16</span><span>© 2026 BuildnWrite. All rights reserved.</span></div>
 </section></div>
 
 <!-- 12 gemini -->
