@@ -64,6 +64,15 @@ tr.key td{background:#FFF7CC;font-weight:700}tr.key td:first-child{border-left:6
  <div class="foot"><span>Google DeepMind AI Hackathon, Seoul, 2026-10-16</span><span>© 2026 BuildnWrite. All rights reserved.</span></div>
 </section></div>
 
+<!-- 0 spidey -->
+<div class="frame"><section class="slide alt" style="display:flex;flex-direction:column;justify-content:center">
+ <span class="eb" style="align-self:flex-start">01 Why</span>
+ <h1 style="font-size:88px;margin-top:36px">Remember Spider-Man: No Way Home?</h1>
+ <p class="lead" style="font-size:42px;max-width:1600px">On release week, fans muted words and even quit Twitter to dodge <b>spoilers</b>. The advice was simple: see it first, fast.</p>
+ <p class="lead" style="font-size:52px;color:var(--ink);font-weight:800;margin-top:48px">Watching together is fun. <span class="hl">Come late, and you get spoilers and lose the context.</span></p>
+ <div class="foot"><span>Source: CBS News, “As Spider-Man swings into theaters, there’s almost no way to avoid spoilers,” Dec 2021</span><span>© 2026 BuildnWrite. All rights reserved.</span></div>
+</section></div>
+
 <!-- 1c community -->
 <div class="frame"><section class="slide">
  <div style="display:flex;gap:64px;align-items:center;height:100%">
@@ -91,15 +100,6 @@ tr.key td{background:#FFF7CC;font-weight:700}tr.key td:first-child{border-left:6
   <img class="shot" src="img/card-2.png" alt="How to watch card" style="height:600px;transform:rotate(3deg);margin-top:90px">
  </div>
  <div class="foot"><span>Book club 산책 invitation, 2026-10-16</span><span>© 2026 BuildnWrite. All rights reserved.</span></div>
-</section></div>
-
-<!-- 3 why fun -->
-<div class="frame"><section class="slide alt" style="display:flex;flex-direction:column;justify-content:center">
- <span class="eb" style="align-self:flex-start">01 Why</span>
- <h1 style="font-size:96px;margin-top:40px">Why is this so much fun?</h1>
- <p class="lead" style="font-size:44px;max-width:1600px">A new movie or drama is best on release night, when everyone watches at once and their takes go viral.</p>
- <p class="lead" style="font-size:56px;color:var(--ink);font-weight:800;margin-top:48px"><span class="hl">Watching and talking together doubles the fun.</span></p>
- <div class="foot"><span>Tving watch-along with 침착맨 ran 9 h 51 min, 2025-10-18</span><span>© 2026 BuildnWrite. All rights reserved.</span></div>
 </section></div>
 
 <!-- 2 streams -->
@@ -139,7 +139,7 @@ tr.key td{background:#FFF7CC;font-weight:700}tr.key td:first-child{border-left:6
 <div class="frame"><section class="slide">
  <span class="eb" style="color:#B5501C;border-color:rgba(224,106,44,.4);background:rgba(224,106,44,.08)">01 Problem</span>
  <h2>But some of us have already seen it</h2>
- <p class="lead">With big releases like Marvel films, fans dodge the internet to avoid <b>spoilers</b>. In a watch party, people who have seen it and people who haven’t share <span class="hl">one chat</span>. Streamers spend the show guarding it.</p>
+ <p class="lead">In a watch party, people who have seen it and people who haven’t share <span class="hl">one chat</span>. Streamers spend the show guarding it.</p>
  <div class="row" style="margin-top:64px">
   <div class="card"><div class="ic">📛</div><h3>In the title</h3><p>“스포금지” (no spoilers) written into a SOOP watch-along title</p></div>
   <div class="card"><div class="ic">🧹</div><h3>By hand</h3><p>Mods are told to delete spoilers from chat</p></div>
@@ -280,15 +280,20 @@ tr.key td{background:#FFF7CC;font-weight:700}tr.key td:first-child{border-left:6
 
 <!-- 11b architecture -->
 <div class="frame"><section class="slide">
- <div style="display:flex;gap:64px;align-items:center;height:100%">
-  <div style="width:560px">
-   <span class="eb">04 How it works</span>
-   <h2>Architecture</h2>
-   <p class="lead" style="font-size:32px">Video plays only in the official YouTube embed. Supabase shares one host time. Cloud Run asks Gemini 4 Argon, 3.8 Flash and 3.5 Flash-Lite.</p>
+ <span class="eb">04 How it works</span>
+ <h2>How it works, in plain words</h2>
+ <div style="display:grid;grid-template-columns:300px 80px 360px 80px 1fr;align-items:center;gap:0;margin-top:70px">
+  <div style="background:#FFFFFF;border:3px solid #C9D2EC;border-radius:24px;padding:28px 32px;text-align:center"><p style="font-size:36px;font-weight:800">🎬 The episode</p><p style="font-size:28px;color:var(--sub);margin-top:8px">on YouTube</p></div>
+  <div style="font-size:56px;color:#9AA3BF;text-align:center;line-height:1">→</div>
+  <div style="background:#F1ECFF;border:3px solid #7B5BE6;border-radius:24px;padding:28px 32px;text-align:center"><p style="font-size:36px;font-weight:800">🤖 AI watches it once</p><p style="font-size:28px;color:var(--sub);margin-top:8px">and writes a scene log</p></div>
+  <div style="font-size:56px;color:#9AA3BF;text-align:center;line-height:1">→</div>
+  <div style="display:flex;flex-direction:column;gap:28px">
+   <div style="background:#E8EEFF;border:3px solid #3D63E8;border-radius:24px;padding:28px 32px;text-align:center"><p style="font-size:36px;font-weight:800">🙋 Late joiner</p><p style="font-size:28px;color:var(--sub);margin-top:8px">“Here’s the story so far”</p></div>
+   <div style="background:#FFF1E8;border:3px solid #E06A2C;border-radius:24px;padding:28px 32px;text-align:center"><p style="font-size:36px;font-weight:800">💬 Friend’s chat</p><p style="font-size:28px;color:var(--sub);margin-top:8px">“That’s a scene not aired yet” → blurred</p></div>
   </div>
-  <img class="shot" src="img/architecture.png" alt="Architecture diagram" style="height:840px;background:#FFFFFF">
  </div>
- <div class="foot"><span>Source: app code and Cloud Run deployment, 2026-10-16</span><span>© 2026 BuildnWrite. All rights reserved.</span></div>
+ <p class="lead" style="font-size:32px;margin-top:64px">Everyone watches the same scene at the same time. The AI only uses what has <span class="hl">already aired</span>.</p>
+ <div class="foot"><span>Technical diagram in the appendix and README</span><span>© 2026 BuildnWrite. All rights reserved.</span></div>
 </section></div>
 
 <!-- 12b performance -->
@@ -326,6 +331,19 @@ tr.key td{background:#FFF7CC;font-weight:700}tr.key td:first-child{border-left:6
  <p class="lead" style="font-size:44px;color:var(--ink);font-weight:700">Join late. <span class="grad">Still watch together.</span></p>
  <p style="font-size:30px;color:var(--sub);margin-top:24px">github.com/ggplab/watch-party-host</p>
  <div class="foot"><span>Lim Jung, BuildnWrite</span><span>© 2026 BuildnWrite. All rights reserved.</span></div>
+</section></div>
+
+<!-- 15 appendix -->
+<div class="frame"><section class="slide">
+ <div style="display:flex;gap:64px;align-items:center;height:100%">
+  <div style="width:560px">
+   <span class="eb">Appendix</span>
+   <h2>Technical architecture</h2>
+   <p class="lead" style="font-size:32px">Video plays only in the official YouTube embed. Supabase shares one host time. Cloud Run asks Gemini 4 Argon, 3.8 Flash and 3.5 Flash-Lite.</p>
+  </div>
+  <img class="shot" src="img/architecture.png" alt="Architecture diagram" style="height:840px;background:#FFFFFF">
+ </div>
+ <div class="foot"><span>Source: app code and Cloud Run deployment, 2026-10-16</span><span>© 2026 BuildnWrite. All rights reserved.</span></div>
 </section></div>
 
 </div>
