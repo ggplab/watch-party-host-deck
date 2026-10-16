@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Watch Party Host</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+body{word-break:keep-all;overflow-wrap:break-word}
+:root{--bg:#F6F7FB;--bg2:#EEF1FA;--ink:#141830;--sub:#4A5270;--dim:#7E86A0;--ac:#3D63E8;--ac2:#7B5BE6;--warm:#E06A2C;--line:rgba(20,24,48,.10);--glass:#FFFFFF}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{-webkit-print-color-adjust:exact;print-color-adjust:exact;background:#E9ECF5;font-family:Pretendard,'Apple SD Gothic Neo',Arial,sans-serif;color:var(--ink)}
+@page{size:1920px 1080px;margin:0}
+.deck{display:flex;flex-direction:column;align-items:center;gap:24px;padding:24px 0}
+.frame{width:1920px;height:1080px;transform-origin:top left;position:relative}
+.slide{width:1920px;height:1080px;position:relative;overflow:hidden;padding:120px 140px 150px;
+ background:radial-gradient(900px 600px at 90% 0%,rgba(61,99,232,.10),transparent 70%),radial-gradient(800px 600px at 0% 100%,rgba(123,91,230,.08),transparent 70%),var(--bg)}
+.slide.alt{background:radial-gradient(1100px 700px at 80% 110%,rgba(61,99,232,.18),transparent 70%),linear-gradient(160deg,#FFFFFF,#EAF0FF)}
+.eb{display:inline-flex;align-items:center;gap:12px;font-size:24px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#2F52D0;padding:10px 20px;border:1px solid rgba(61,99,232,.35);border-radius:999px;background:rgba(61,99,232,.08)}
+h1{font-size:120px;font-weight:800;letter-spacing:-3px;line-height:1.02}
+h2{font-size:76px;font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-top:28px}
+.grad{color:#3D63E8}
+.lead{font-size:40px;line-height:1.45;color:var(--sub);margin-top:28px;max-width:1500px}
+.lead b{color:var(--ink)}
+.row{display:flex;gap:32px}
+.card{flex:1;background:var(--glass);border:1px solid var(--line);border-radius:28px;padding:44px;box-shadow:0 10px 30px rgba(20,24,48,.06)}
+.card h3{font-size:40px;font-weight:700;margin-bottom:14px}
+.card p{font-size:30px;line-height:1.5;color:var(--sub)}
+.card.hi{background:linear-gradient(160deg,#E8EEFF,#F1ECFF);border-color:rgba(61,99,232,.45)}
+.ic{width:64px;height:64px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:34px;background:#EEF1FA;margin-bottom:24px}
+.foot{position:absolute;left:140px;right:140px;bottom:56px;display:flex;justify-content:space-between;font-size:22px;color:var(--dim)}
+.shot{border-radius:20px;border:1px solid var(--line);box-shadow:0 24px 60px rgba(20,24,48,.18),0 0 0 8px rgba(255,255,255,.7)}
+.call{position:absolute;background:#141830;color:#FFFFFF;font-size:26px;font-weight:700;padding:14px 22px;border-radius:14px;box-shadow:0 12px 30px rgba(20,24,48,.25)}
+.call:before{content:"";position:absolute;width:14px;height:14px;background:inherit;transform:rotate(45deg)}
+.call.l:before{left:-7px;top:22px}.call.r:before{right:-7px;top:22px}
+.num{font-size:120px;font-weight:800;letter-spacing:-3px;line-height:1}
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:28px;margin-top:36px}
+th,td{padding:18px 20px;text-align:center;border-bottom:1px solid var(--line)}
+th{font-size:24px;color:var(--sub);font-weight:600}
+td:first-child,th:first-child{text-align:left;color:var(--ink)}
+.us{background:rgba(61,99,232,.08)}
+th.us{border-radius:18px 18px 0 0;color:#2F52D0}
+.o{color:#2F52D0;font-weight:800}.x{color:#A3A9BE}.t{color:#B5501C;font-weight:700}
+.hl{background:linear-gradient(transparent 52%,#FFE45C 52%,#FFE45C 92%,transparent 92%);padding:0 4px;color:inherit}
+tr.key td{background:#FFF7CC;font-weight:700}tr.key td:first-child{border-left:6px solid #F2C200}tr.minor td{color:#A3A9BE;font-size:24px}tr.minor td.o{color:#9AA8D8}
+.logo{height:40px;display:block;margin:0 auto 10px}
+@media screen{.deck{zoom:var(--z,1)}}
+@media print{html,body{background:var(--bg)}.deck{padding:0;gap:0;display:block}.frame{transform:none!important;margin:0!important;page-break-after:always;break-after:page}}
+</style>
+</head>
+<body>
+<div class="deck">
+
+<!-- 1 cover -->
+<div class="frame"><section class="slide alt">
+ <div style="display:flex;gap:80px;align-items:center;height:100%">
+  <div style="flex:1">
+   <img src="../img/wph-mark.svg" alt="" style="width:104px;height:104px">
+   <h1 style="margin-top:40px">Watch Party<br><span class="grad">Host</span></h1>
+   <p class="lead" style="font-size:48px;color:var(--ink);font-weight:600">늦게 와도, 같이 봅니다.</p>
+   <p class="lead" style="font-size:32px;margin-top:18px">Gemini로 만든 YouTube 같이 보기 AI 매니저.</p>
+  </div>
+  <img class="shot" src="../img/room-recap.png" alt="AI 요약이 있는 Watch Party Host 시청방" style="width:900px;transform:perspective(1600px) rotateY(-12deg)">
+ </div>
+ <div class="foot"><span>Google DeepMind AI 해커톤, 서울, 2026-10-16</span><span>© 2026 BuildnWrite. All rights reserved.</span></div>
+</section></div>
+
+<!-- 0 spidey -->
+<div class="frame"><section class="slide alt" >
+<div style="display:flex;gap:72px;align-items:center;height:100%">
+  <div style="flex:1">
+   <span class="eb">01 시작한 이유</span>
+   <h1 style="font-size:84px;margin-top:36px">「스파이더맨: 브랜드 뉴 데이」</h1>
+   <p class="lead" style="font-size:40px">2026년 여름. 시사회 뒤 쿠키 영상이 SNS에 유출됐습니다. 영화를 보기 전까지 SNS를 피하라는 당부가 이어졌습니다. <b>남보다 먼저, 빨리 보기.</b></p>
+   <p class="lead" style="font-size:48px;color:var(--ink);font-weight:800;margin-top:44px">같이 보면 즐겁습니다. <span class="hl">늦게 오면 스포일러를 보고, 맥락도 놓칩니다.</span></p>
+  </div>
+  <img class="shot" src="../img/bnd-poster.jpg" alt="「스파이더맨: 브랜드 뉴 데이」 공식 포스터" style="width:330px">
+ </div>
+ <div class="foot"><span>출처: tbreak, “「스파이더맨: 브랜드 뉴 데이」 쿠키 영상 유출, 소니 저작권 침해 삭제 요청”, 2026. 포스터: 위키백과에 실린 Sony Pictures 자료</span><span>© 2026 BuildnWrite. All rights reserved.</span></div>
+</section></div>
+
+<!-- 1c community -->
+<div class="frame"><section class="slide" >
+<div style="display:flex;gap:56px;align-items:center;height:100%">
+  <div style="width:560px">
+   <span class="eb">01 시작한 이유</span>
+   <h2>「더 커뮤니티2」</h2>
+   <p class="lead">한국 서바이벌 예능. 서로 모르는 사람들이 <span class="hl">서로 다른 가치관으로</span> 함께 살며 생존을 겨룹니다.</p>
+   <p class="lead" style="font-size:30px">1~3화는 YouTube에서 무료로 볼 수 있습니다.</p>
+  </div>
+  <img class="shot" src="../img/c2-poster.jpg" alt="「더 커뮤니티2」 공식 포스터" style="width:300px">
+  <img class="shot" src="../img/community2.jpg" alt="「더 커뮤니티2」 1화 장면" style="flex:1;width:0;min-width:0">
+ </div>
+ <div class="foot"><span>포스터와 1화: 웨이브 오리지널</span><span>© 2026 BuildnWrite. All rights reserved.</span></div>
+</section></div>
+
+<!-- 2 friends -->
+<div class="frame"><section class="slide">
+ <div style="display:flex;gap:48px;height:100%">
+  <div style="flex:1;min-width:700px">
+   <span class="eb">01 시작한 이유</span>
+   <h2>오늘 밤, 친구들과 같이 보기</h2>
+   <p class="lead">친구들이 이 프로그램을 골라 바로 같이 볼 자리를 만들었습니다. <span class="hl">오늘 밤 22:00,</span> 각자 집에서 팝콘과 맥주를 준비합니다. 함께 재생하고 단체 채팅방에서 이야기를 나눕니다.</p>
+   
+  </div>
+  <img class="shot" src="../img/card-1.png" alt="초대장" style="height:600px;transform:rotate(-3deg);margin-top:60px">
+  <img class="shot" src="../img/card-2.png" alt="시청 방법 안내 카드" style="height:600px;transform:rotate(3deg);margin-top:90px">
+ </div>
+ <div class="foot"><span>친구들과의 같이 보기 초대장, 2026-10-16</span><span>© 2026 BuildnWrite. All rights reserved.</span></div>
+</section></div>
+
+<!-- 2 culture -->
+<div class="frame"><section class="slide" >
+<span class="eb">01 시작한 이유</span>
+ <h2>문화가 된 같이 보기</h2>
+ <div style="display:flex;gap:56px;margin-top:44px">
+  <div style="width:640px;display:flex;flex-direction:column;gap:24px">
+   <div class="card" style="padding:32px"><h3 style="font-size:34px">⚽ 축구, 📺 드라마</h3><p style="font-size:27px">꼭 <b>지금</b> 봐야 한다면, <span class="hl">함께</span> 볼 때 더 즐겁습니다.</p></div>
+   <div class="card" style="padding:32px"><h3 style="font-size:34px">스트리머도 아는 즐거움</h3><p style="font-size:27px">시청자와 채팅하며 프로그램을 보는 <span class="hl">같이 보기 방송</span>입니다. 치지직, SOOP, YouTube 최초 공개가 모두 지원합니다.</p></div>
+  </div>
+  <div style="flex:1;display:flex;flex-direction:column;gap:24px">
+   <img class="shot" src="../img/seobom-face.jpg" alt="서새봄 방송 썸네일" style="width:100%;height:330px;object-fit:cover">
+   <img class="shot" src="../img/chzzk-watchalong.png" alt="치지직 같이 보기 채널과 생방송" style="width:100%;height:300px;object-fit:cover;object-position:top">
+  </div>
+ </div>
+ <div class="foot"><span>화면: 치지직, 2026-10-16 캡처</span><span>© 2026 BuildnWrite. All rights reserved.</span></div>
+</section></div>
+
+<!-- 6 heard -->
+<div class="frame"><section class="slide" >
+<span class="eb">01 직접 들은 이야기</span>
+ <h2>직접 들은 이야기</h2>
+ <div class="row" style="margin-top:64px">
+  <div class="card" style="padding:48px"><p style="font-size:44px;font-weight:800;line-height:1.35">“늦게 들어가면 보통 그냥 나와요.”</p><p style="font-size:28px;margin-top:20px">같이 보기 모임의 친구, 자녀를 둔 부모</p></div>
+  <div class="card" style="padding:48px"><p style="font-size:44px;font-weight:800;line-height:1.35">“강의 중에 채팅에 답하면 흐름이 끊겨요.”</p><p style="font-size:28px;margin-top:20px">실시간 강의를 하는 나</p></div>
+ </div>
+ <div class="foot"><span>인터뷰, 2026-10-16 (취지를 살려 정리)</span><span>© 2026 BuildnWrite. All rights reserved.</span></div>
+</section></div>
+
+<!-- 5 spoilers -->
+<div class="frame"><section class="slide">
+ <p style="font-size:120px;font-weight:900;color:#E06A2C;letter-spacing:-3px;line-height:1">문제 1</p>
+ <h2 style="margin-top:12px">이미 본 사람과 처음 보는 사람</h2>
+ <p class="lead">같이 보기에서는 이미 본 사람과 처음 보는 사람이 <span class="hl">한 채팅방</span>을 씁니다. 스트리머는 방송 내내 스포일러를 막아야 합니다.</p>
+ <div class="row" style="margin-top:64px">
+  <div class="card"><div class="ic">📛</div><h3>방송 제목으로 경고</h3><p>SOOP 같이 보기 방송 제목에 적힌 “스포금지”</p></div>
+  <div class="card"><div class="ic">🧹</div><h3>직접 삭제</h3><p>관리자가 채팅의 스포일러를 직접 삭제</p></div>
+  <div class="card"><div class="ic">📩</div><h3>우리 초대장에도</h3><p>“이미 보신 분들은 스포일러 금지!”</p></div>
+ </div>
+ <div class="foot"><span>출처: Streams Charts의 SOOP 방송 제목, 2026-09-30. Cohhilition 채팅 규칙</span><span>© 2026 BuildnWrite. All rights reserved.</span></div>
+</section></div>
+
+<!-- 7 late -->
+<div class="frame"><section class="slide">
+ <p style="font-size:120px;font-weight:900;color:#E06A2C;letter-spacing:-3px;line-height:1">문제 2</p>
+ <h2 style="margin-top:12px">모두가 22:00에 올 수는 없습니다</h2>
+ <div style="position:relative;height:220px;margin-top:90px">
+  <div style="position:absolute;left:0;right:0;top:60px;height:6px;border-radius:3px;background:linear-gradient(90deg,#4C7DFF,#9B6BFF 35%,#D5DAE8 36%)"></div>
+  <div style="position:absolute;left:120px;top:48px;width:30px;height:30px;border-radius:50%;background:#7FA2FF"></div>
+  <div style="position:absolute;left:70px;top:110px;width:130px;text-align:center;font-size:34px;color:var(--sub)">22:00</div>
+  <div style="position:absolute;left:560px;top:36px;width:54px;height:54px;border-radius:50%;background:#E06A2C;box-shadow:0 0 0 12px rgba(224,106,44,.18)"></div>
+  <div style="position:absolute;left:487px;top:110px;width:200px;text-align:center;font-size:40px;font-weight:800;color:#C4551F">22:10</div>
+  <div style="position:absolute;left:1500px;top:48px;width:30px;height:30px;border-radius:50%;background:#C3C9DA"></div>
+  <div style="position:absolute;left:1450px;top:110px;width:130px;text-align:center;font-size:34px;color:var(--dim)">23:00</div>
+ </div>
+ <p class="lead" style="font-size:52px;color:var(--ink)">아이를 재운 뒤 22:10에 들어오는 부모.</p>
+ <p class="lead" style="font-size:52px;margin-top:10px"><b class="hl">늦게 들어오면 보통 그냥 나갑니다.</b></p>
+ <p class="lead" style="font-size:34px">스트리머는 새로 온 사람에게 줄거리를 계속 설명합니다.</p>
+ <div class="foot"><span>친구 A, 인터뷰 2026-10-16 (취지를 살려 정리)</span><span>© 2026 BuildnWrite. All rights reserved.</span></div>
+</section></div>
+
+<!-- 8 compare -->
+<div class="frame"><section class="slide" style="padding-top:96px">
+ <span class="eb">02 차별점</span>
+ <h2 style="font-size:60px"><br><span class="grad hl">채팅을 쓴 시각이 아니라,</span> 채팅이 말하는 장면으로 스포일러를 알아봅니다.</h2>
+ <table>
+  <tr><th style="width:30%"></th><th><img class="logo" src="../img/twitch.svg" alt="">Twitch</th><th><img class="logo" src="../img/soop.png" alt="" style="border-radius:8px">SOOP</th><th><img class="logo" src="../img/youtube.svg" alt="">YouTube 최초 공개</th><th><img class="logo" src="../img/chzzk.svg" alt="">치지직</th><th><span style="display:block;height:40px;margin:0 auto 10px;font-size:26px;font-weight:800;color:#1A98FF;line-height:40px">prime</span>Prime Video X-Ray Recaps</th><th class="us"><img class="logo" src="../img/wph-mark.svg" alt="">Watch Party Host</th></tr>
+  <tr class="minor"><td>같이 보기</td><td class="x">X</td><td class="o">O</td><td class="o">O</td><td class="o">O</td><td class="x">X 2024 종료</td><td class="us o">O</td></tr>
+  <tr class="key"><td>① 늦게 온 사람을 위한 요약</td><td class="x">X</td><td class="t">△ 현재 생방송 기준</td><td class="x">X</td><td class="x">X</td><td class="t">△ 혼자 볼 때만</td><td class="us o">O 영상 내용 기준</td></tr>
+  <tr class="minor"><td>방송된 내용으로만 답변</td><td class="x">X</td><td class="x">X</td><td class="x">X</td><td class="x">X</td><td class="x">X</td><td class="us o">O</td></tr>
+  <tr class="key"><td>② 장면 기준 스포일러 가리기</td><td class="x">X</td><td class="x">X</td><td class="x">X</td><td class="x">X</td><td class="x">X</td><td class="us o">O</td></tr>
+  <tr class="minor"><td>누구나 YouTube를 TV처럼 편성</td><td class="x">X</td><td class="x">X</td><td class="x">X</td><td class="x">X</td><td class="x">X</td><td class="us o">O</td></tr>
+ </table>
+ <div class="foot"><span style="max-width:1200px">2026-10-16 기준 공개 자료, 일부 공지는 미확인. SOOP 요약은 현재 생방송 기준입니다. Prime Video X-Ray Recaps는 혼자 볼 때 사용합니다. Watch Party는 2024-04에 새 모임 생성을 중단했습니다. 치지직 클린봇은 욕설을 걸러내며, 스포일러는 걸러내지 않습니다.</span><span>© 2026 BuildnWrite. All rights reserved.</span></div>
+</section></div>
+
+<!-- 9 product: recap -->
+<div class="frame"><section class="slide">
+ <span class="eb">기능 ① 늦게 온 사람을 위한 요약</span>
+ <h2 style="font-size:64px">늦게 와도 <span class="grad hl">방송된 내용까지</span> 따라잡기</h2>
+ <div style="position:relative;margin-top:44px">
+  <img class="shot" src="../img/room-recap.png" alt="현재 방송 시점까지 AI가 요약한 시청방" style="width:1180px">
+  <div class="call l" style="left:1230px;top:40px;width:400px">“Catch me up”으로 지금까지의 줄거리 요약</div>
+  <div class="call l" style="left:1230px;top:220px;width:400px">한국어와 영어 지원, 장면 시각을 누르면 근거 확인</div>
+  <div style="position:absolute;left:1230px;top:400px;width:400px;font-size:24px;color:var(--dim)">Argon 장면 기록 기반, 7.2 s</div>
+ </div>
+ <div class="foot"><span>실제 앱, 데모 시청방, 2026-10-16</span><span>© 2026 BuildnWrite. All rights reserved.</span></div>
+</section></div>
+
+<!-- 10 product: shield -->
+<div class="frame"><section class="slide">
+ <div style="display:flex;gap:80px;align-items:center;height:100%">
+  <div style="flex:1;max-width:900px">
+   <span class="eb">기능 ② 스포일러 가리기</span>
+   <h2 style="font-size:64px">올라오는 즉시 가려지는 스포일러</h2>
+   <p class="lead">이미 본 사람이 아직 방송되지 않은 장면을 채팅에 씁니다. Gemini가 해당 장면을 찾아 <span class="hl"><b>채팅이 올라오는 즉시 가립니다.</b></span></p>
+   <p class="lead" style="font-size:30px">내용이 궁금한가요? <b>원하면 눌러서 볼 수 있습니다.</b> 해당 장면이 방송되면 자동으로 보입니다.</p>
+  </div>
+  <div style="position:relative;width:620px">
+   <img class="shot" src="../img/shield-chat.png" alt="해당 장면이 방송될 때까지 스포일러를 가린 채팅" style="width:620px;display:block">
+   <div style="position:absolute;left:4px;top:476px;width:612px;height:58px;border:4px solid #E06A2C;border-radius:10px"></div>
+   <p style="font-size:28px;font-weight:700;color:#C4551F;margin-top:22px">올라오면 바로 가리고, 누르면 보입니다. 친구들 반응: “야야 그거 스포임”, “AI가 가려 줘서 다행”</p>
+  </div>
+ </div>
+ <div class="foot"><span>실제 앱, 데모 시청방, 2026-10-16</span><span>© 2026 BuildnWrite. All rights reserved.</span></div>
+</section></div>
+
+<!-- 11t tour 1/3 -->
+<div class="frame"><section class="slide" style="padding:56px 140px 120px">
+ <div style="display:flex;align-items:center;gap:20px"><span class="eb">화면 둘러보기 1/3</span><p style="font-size:34px;font-weight:800">TV처럼 모두가 같은 장면 시청</p></div>
+ <div style="position:relative;width:1500px;height:844px;margin-top:24px;overflow:hidden;border-radius:20px">
+  <img class="shot" src="../img/room-tour.png" alt="Watch Party Host 시청방: 영상, 방송 시계, AI 요약 카드, 스포일러를 가린 채팅" style="width:1500px;height:844px;display:block">
+  <div style="position:absolute;inset:0;border-radius:20px;background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);background-size:60px 60px;pointer-events:none"></div>
+  <div style="position:absolute;left:-4px;top:772px;width:262px;height:52px;border:5px solid #FF2D2D;border-radius:10px;box-shadow:0 0 0 4000px rgba(10,14,28,.35)"></div>
+  <div class="call l" style="left:20px;top:676px;width:520px;font-size:30px;background:#FF2D2D">TV처럼 모두가 같은 장면 시청</div>
+ </div>
+ <div class="foot"><span>실제 앱, 리비전 00014, 데모 시청방, 2026-10-16</span><span>© 2026 BuildnWrite. All rights reserved.</span></div>
+</section></div>
+
+<!-- 11t tour 2/3 -->
+<div class="frame"><section class="slide" style="padding:56px 140px 120px">
+ <div style="display:flex;align-items:center;gap:20px"><span class="eb">화면 둘러보기 2/3</span><p style="font-size:34px;font-weight:800">기능 1: 현재 방송 시점까지 요약</p></div>
+ <div style="position:relative;width:1500px;height:844px;margin-top:24px;overflow:hidden;border-radius:20px">
+  <img class="shot" src="../img/room-tour.png" alt="Watch Party Host 시청방: 영상, 방송 시계, AI 요약 카드, 스포일러를 가린 채팅" style="width:1500px;height:844px;display:block">
+  <div style="position:absolute;inset:0;border-radius:20px;background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);background-size:60px 60px;pointer-events:none"></div>
+  <div style="position:absolute;left:1166px;top:77px;width:331px;height:336px;border:5px solid #FF2D2D;border-radius:10px;box-shadow:0 0 0 4000px rgba(10,14,28,.35)"></div>
+  <div class="call r" style="left:740px;top:120px;width:400px;font-size:30px;background:#FF2D2D">기능 1: 현재 방송 시점까지 요약</div>
+ </div>
+ <div class="foot"><span>실제 앱, 리비전 00014, 데모 시청방, 2026-10-16</span><span>© 2026 BuildnWrite. All rights reserved.</span></div>
+</section></div>
+
+<!-- 11t tour 3/3 -->
+<div class="frame"><section class="slide" style="padding:56px 140px 120px">
+ <div style="display:flex;align-items:center;gap:20px"><span class="eb">화면 둘러보기 3/3</span><p style="font-size:34px;font-weight:800">기능 2: 채팅이 말하는 장면으로 스포일러 가리기</p></div>
+ <div style="position:relative;width:1500px;height:844px;margin-top:24px;overflow:hidden;border-radius:20px">
+  <img class="shot" src="../img/room-tour.png" alt="Watch Party Host 시청방: 영상, 방송 시계, AI 요약 카드, 스포일러를 가린 채팅" style="width:1500px;height:844px;display:block">
+  <div style="position:absolute;inset:0;border-radius:20px;background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);background-size:60px 60px;pointer-events:none"></div>
+  <div style="position:absolute;left:1168px;top:675px;width:312px;height:42px;border:5px solid #FF2D2D;border-radius:10px;box-shadow:0 0 0 4000px rgba(10,14,28,.35)"></div>
+  <div class="call r" style="left:720px;top:650px;width:420px;font-size:30px;background:#FF2D2D">기능 2: 채팅이 말하는 장면으로 스포일러 가리기</div>
+ </div>
+ <div class="foot"><span>실제 앱, 리비전 00014, 데모 시청방, 2026-10-16</span><span>© 2026 BuildnWrite. All rights reserved.</span></div>
+</section></div>
+
+<!-- 8b demo -->
+<div class="frame"><section class="slide alt" style="display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center">
+ <span class="eb">03 데모</span>
+ <h1 style="font-size:150px;margin-top:40px">데모</h1>
+ <p class="lead" style="font-size:40px">두 가지 기능: ① 늦게 온 사람을 위한 요약, ② 스포일러 가리기.</p>
+ <p style="font-size:28px;color:var(--dim);margin-top:40px">여기서 영상 재생 (Google Drive)</p>
+ <div class="foot"><span>watch-party-host-1011836345966.asia-northeast3.run.app</span><span>© 2026 BuildnWrite. All rights reserved.</span></div>
+</section></div>
+
+<!-- 11 how -->
+<div class="frame"><section class="slide">
+ <span class="eb">04 작동 방식</span>
+ <h2>두 기능의 기준, 하나의 방송 시계</h2>
+ <p class="lead">모두가 호스트가 재생한 영상을 봅니다. 하나의 시계에 두 규칙을 적용합니다.</p>
+ <div style="position:relative;height:120px;margin-top:90px">
+  <div style="position:absolute;left:0;width:1000px;top:56px;height:8px;border-radius:4px;background:linear-gradient(90deg,#4C7DFF,#9B6BFF)"></div>
+  <div style="position:absolute;left:1000px;right:0;top:58px;border-top:5px dashed #C3C9DA"></div>
+  <div style="position:absolute;left:976px;top:36px;width:48px;height:48px;border-radius:50%;background:#3D63E8;box-shadow:0 0 0 12px rgba(61,99,232,.2)"></div>
+  <div style="position:absolute;left:860px;top:-14px;width:280px;text-align:center;font-size:28px;font-weight:800">현재 방송 시점</div>
+  <div style="position:absolute;left:0;top:84px;font-size:26px;color:var(--sub)">이미 방송된 장면</div>
+  <div style="position:absolute;right:0;top:84px;font-size:26px;color:var(--dim)">앞으로 방송될 장면</div>
+ </div>
+ <div class="row" style="margin-top:40px">
+  <div class="card"><h3>요약과 답변에 활용</h3><p>이미 방송된 장면만 요약과 답변에 씁니다.</p></div>
+  <div class="card hi"><h3>방송 전까지 가리기</h3><p>아직 방송되지 않은 장면을 말하는 채팅은 즉시 가립니다. 누르면 미리 볼 수 있고, 해당 장면이 방송되면 자동으로 보입니다.</p></div>
+ </div>
+ <div class="foot"><span></span><span>© 2026 BuildnWrite. All rights reserved.</span></div>
+</section></div>
+
+<!-- 11b architecture -->
+<div class="frame"><section class="slide">
+ <span class="eb">04 작동 방식</span>
+ <h2>한눈에 보는 작동 방식</h2>
+ <div style="display:grid;grid-template-columns:300px 80px 360px 80px 1fr;align-items:center;gap:0;margin-top:70px">
+  <div style="background:#FFFFFF;border:3px solid #C9D2EC;border-radius:24px;padding:28px 32px;text-align:center"><p style="font-size:36px;font-weight:800">🎬 시청할 영상</p><p style="font-size:28px;color:var(--sub);margin-top:8px">YouTube 영상</p></div>
+  <div style="font-size:56px;color:#9AA3BF;text-align:center;line-height:1">→</div>
+  <div style="background:#F1ECFF;border:3px solid #7B5BE6;border-radius:24px;padding:28px 32px;text-align:center"><p style="font-size:36px;font-weight:800">🤖 AI가 한 번 시청</p><p style="font-size:28px;color:var(--sub);margin-top:8px">장면별 기록 작성</p></div>
+  <div style="font-size:56px;color:#9AA3BF;text-align:center;line-height:1">→</div>
+  <div style="display:flex;flex-direction:column;gap:28px">
+   <div style="background:#E8EEFF;border:3px solid #3D63E8;border-radius:24px;padding:28px 32px;text-align:center"><p style="font-size:36px;font-weight:800">🙋 늦게 온 사람</p><p style="font-size:28px;color:var(--sub);margin-top:8px">“지금까지의 줄거리예요”</p></div>
+   <div style="background:#FFF1E8;border:3px solid #E06A2C;border-radius:24px;padding:28px 32px;text-align:center"><p style="font-size:36px;font-weight:800">💬 친구의 채팅</p><p style="font-size:28px;color:var(--sub);margin-top:8px">“아직 방송 전인 장면이에요” → 가리기</p></div>
+  </div>
+ </div>
+ <p class="lead" style="font-size:32px;margin-top:64px">모두가 같은 시각에 같은 장면을 봅니다. AI는 <span class="hl">이미 방송된 내용만</span> 씁니다.</p>
+ <div class="foot"><span>기술 구성도는 부록과 README 참고</span><span>© 2026 BuildnWrite. All rights reserved.</span></div>
+</section></div>
+
+<!-- 12c instant -->
+<div class="frame"><section class="slide" >
+<span class="eb">04 빠른 응답의 비결</span>
+ <h2>질문 전에 준비한 답변</h2>
+ <p class="lead" style="font-size:32px">미리 답변을 만듭니다. <span class="hl">18개 장면 경계 × 3개 질문</span> 의 답변을 캐시에 저장합니다. 요약은 일괄 처리합니다.</p>
+ <div class="row" style="margin-top:40px">
+  <div class="card hi" style="padding:36px"><div class="num grad" style="font-size:96px">0.2<span style="font-size:48px"> s</span></div><h3 style="font-size:32px;margin-top:14px">캐시에 저장한 요약</h3><p style="font-size:25px">첫 질문은 7.8~9.7 s 소요</p></div>
+  <div class="card" style="padding:36px"><div class="num" style="font-size:96px">0.3<span style="font-size:48px"> s</span></div><h3 style="font-size:32px;margin-top:14px">데모 채팅 스포일러 판별</h3><p style="font-size:25px">캐시 사용. 새 채팅은 1.3~2.0 s 소요</p></div>
+  <div class="card" style="padding:36px"><div class="num" style="font-size:96px">ms<span style="font-size:48px"></span></div><h3 style="font-size:32px;margin-top:14px">다음 단계: 키워드 색인</h3><p style="font-size:25px">장면 기록으로 색인 생성, 모델은 최종 확인만</p></div>
+ </div>
+ <div class="foot"><span>수치: 앱 세션 보고서, 배포 앱에서 2026-10-16 측정</span><span>© 2026 BuildnWrite. All rights reserved.</span></div>
+</section></div>
+
+<!-- 12b performance -->
+<div class="frame"><section class="slide">
+ <span class="eb">04 성능</span>
+ <h2>두 기능 모두 실시간으로</h2>
+ <div class="row" style="margin-top:56px">
+  <div class="card hi" style="padding:36px"><div class="num grad" style="font-size:96px">0.2<span style="font-size:48px"> s</span></div><h3 style="font-size:32px;margin-top:14px">캐시에 저장한 요약</h3><p style="font-size:25px">첫 질문은 몇 초 소요 (7.8~9.7 s)</p></div>
+  <div class="card" style="padding:36px"><div class="num" style="font-size:96px">1.3<span style="font-size:48px"> ~2.0 s</span></div><h3 style="font-size:32px;margin-top:14px">새 채팅 스포일러 판별</h3><p style="font-size:25px">캐시 사용 시 0.3 s</p></div>
+  <div class="card" style="padding:36px"><div class="num" style="font-size:96px">18/18<span style="font-size:48px"></span></div><h3 style="font-size:32px;margin-top:14px">스포일러 감지</h3><p style="font-size:25px">사전 작성한 채팅, 1화 첫 30분</p></div>
+ </div>
+ <p style="font-size:24px;color:var(--dim);margin-top:40px">같이 보기 전 장면 기록 검증: 16개 클립 재확인, 6개 판정 불일치. Argon이 5개 유지, 1개 수정.</p>
+ <div class="foot"><span>배포 앱에서 측정 (Cloud Run, 서울), 2026-10-16 14:00 KST. 스포일러 평가 데이터 작성일 2026-10-15</span><span>© 2026 BuildnWrite. All rights reserved.</span></div>
+</section></div>
+
+<!-- 13 next -->
+<div class="frame"><section class="slide alt">
+ <span class="eb">05 다음 단계</span>
+ <h2>오늘 밤 친구들, 다음은 크리에이터</h2>
+ <div class="row" style="margin-top:60px">
+  <div class="card"><div class="ic">🍿</div><h3>오늘 밤 22:00</h3><p>친구들과 이 앱으로 「더 커뮤니티2」를 봅니다.</p></div>
+  <div class="card hi"><div class="ic">📺</div><h3>다음 단계</h3><p>크리에이터의 같이 보기 방송을 돕는 AI 매니저.</p></div>
+  <div class="card"><div class="ic">🎓</div><h3>그다음</h3><p>내 실시간 강의 채팅에 답하는 에이전트.</p></div>
+ </div>
+ <p style="font-size:64px;font-weight:800;margin-top:80px;letter-spacing:-1px">늦게 와도, <span class="grad hl">같이 봅니다.</span></p>
+ <p style="font-size:28px;color:var(--sub);margin-top:16px">실서비스에서는 Flash가 장면을 기록하고, 확신이 없을 때만 Argon이 판정합니다. 키워드 색인으로 스포일러를 밀리초 안에 가립니다.</p>
+ <p style="font-size:28px;color:var(--sub);margin-top:8px">github.com/ggplab/watch-party-host</p>
+ <div class="foot"><span>임정, BuildnWrite</span><span>© 2026 BuildnWrite. All rights reserved.</span></div>
+</section></div>
+
+<!-- 13b retro -->
+<div class="frame"><section class="slide" >
+<span class="eb">05 회고</span>
+ <h2>다음에는 이렇게</h2>
+ <div class="row" style="margin-top:56px">
+  <div class="card" style="padding:40px"><div class="num" style="font-size:80px">70 / 20 / 10</div><h3 style="font-size:32px;margin-top:16px">기획 / 발표 / 개발</h3><p style="font-size:26px">오늘의 시간 배분.</p></div>
+  <div class="card hi" style="padding:40px"><h3 style="font-size:34px">역할에 맞는 모델</h3><p style="font-size:27px">실시간 처리에는 Flash와 Flash-Lite가 필요합니다. 장면 기록에 Argon을 쓰는 것은 과했습니다. <b>다음에는 Flash가 기록하고, Argon이 판정합니다.</b></p></div>
+  <div class="card" style="padding:40px"><h3 style="font-size:34px">Argon 활용의 아쉬움</h3><p style="font-size:27px">기존 하네스에 맞춰 권한을 잘못 줘서 Argon을 더 많이 못 쓴 게 아쉽다.</p></div>
+ </div>
+ <div class="foot"><span></span><span>© 2026 BuildnWrite. All rights reserved.</span></div>
+</section></div>
+
+<!-- 14 thanks -->
+<div class="frame"><section class="slide alt" style="display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center">
+ <img src="../img/wph-mark.svg" alt="" style="width:120px;height:120px">
+ <h1 style="font-size:150px;margin-top:40px">감사합니다</h1>
+ <p class="lead" style="font-size:44px;color:var(--ink);font-weight:700">늦게 와도, <span class="grad">같이 봅니다.</span></p>
+ <p style="font-size:30px;color:var(--sub);margin-top:24px">github.com/ggplab/watch-party-host</p>
+ <div class="foot"><span>임정, BuildnWrite</span><span>© 2026 BuildnWrite. All rights reserved.</span></div>
+</section></div>
+
+<!-- 15 appendix -->
+<div class="frame"><section class="slide" >
+<span class="eb">부록</span>
+ <h2 style="font-size:56px;margin-top:12px">기술 흐름</h2>
+ <img class="shot" src="../img/tech-flow.png" alt="기술 흐름: 같이 보기 전 Argon이 장면 기록 작성. 같이 보기 중 Supabase가 방송 시계 공유, Flash가 요약, Flash-Lite가 스포일러 가리기" style="width:1300px;margin-top:16px;display:block">
+ <div class="foot"><span>출처: 앱 코드와 Cloud Run 배포, 2026-10-16. 구성도: GPT로 제작</span><span>© 2026 BuildnWrite. All rights reserved.</span></div>
+</section></div>
+
+</div>
+<script>
+function fit(){if(matchMedia('print').matches)return;var z=Math.min(1,(window.innerWidth-32)/1920);document.querySelectorAll('.frame').forEach(function(f){f.style.transform='scale('+z+')';f.style.marginBottom=(1080*z-1080)+'px';f.style.marginRight=(1920*z-1920)+'px'})}
+addEventListener('resize',fit);fit();
+</script>
+</body>
+</html>
